@@ -325,7 +325,7 @@ function renderShared(){
     el.innerHTML=['rent','buy'].map(m=>`<button data-mode="${m}" class="${S.mode===m?'on':''}">${m==='rent'?'Rent':'Buy'}</button>`).join('');
   });
   const area = S.areas.length ? `${S.areas.length} area${S.areas.length>1?'s':''}` : 'Amsterdam';
-  const cap = S.mode==='rent' ? '€'+S.max.rent.toLocaleString('en-US') : '€'+Math.round(S.max.buy/1000)+'k';
+  const cap = S.mode==='rent' ? '€'+(S.max.rent/1000).toFixed(2).replace(/\.?0+$/,'')+'k' : '€'+Math.round(S.max.buy/1000)+'k';
   $$('[data-pilltext]').forEach(el=>el.textContent=`${area} · ≤ ${cap}`);
   const n=S.saved.size, b=$('#savedbadge'); b.style.display=n?'flex':'none'; b.textContent=n;
 }
