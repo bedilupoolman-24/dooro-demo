@@ -1,0 +1,16 @@
+{
+  "name": "Dooro",
+  "short_name": "Dooro",
+  "description": "Swipe your way home. Demo of the Dooro home-discovery app.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E1A3A",
+  "theme_color": "#0E1A3A",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
