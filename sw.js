@@ -1,5 +1,5 @@
 // App-shell cache so the installed demo opens instantly; map tiles always come from the network.
-const CACHE = 'dooro-demo-v3';
+const CACHE = 'dooro-demo-v4';
 const SHELL = ['./', 'index.html', 'homes.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

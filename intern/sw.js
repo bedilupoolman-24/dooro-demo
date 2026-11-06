@@ -1,5 +1,5 @@
 // App-shell cache so the installed demo opens instantly; map tiles always come from the network.
-const CACHE = 'dooro-intern-v1';
+const CACHE = 'dooro-intern-v2';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest'];
 
 self.addEventListener('install', e => {

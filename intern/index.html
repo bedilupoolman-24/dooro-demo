@@ -9,6 +9,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Dooro intern">
 <link rel="manifest" href="manifest.webmanifest">
+<script>(function(){var d=document.documentElement;function f(){var sa=navigator.standalone||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches);if(sa&&window.innerHeight<screen.height-2){d.style.setProperty('--appH',screen.height+'px');d.classList.add('fixh')}else{d.classList.remove('fixh');d.style.removeProperty('--appH')}}f();addEventListener('resize',f);addEventListener('orientationchange',f)})();</script>
+<link rel="apple-touch-startup-image" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1320x2868.png">
+<link rel="apple-touch-startup-image" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1206x2622.png">
+<link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1290x2796.png">
+<link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1179x2556.png">
+<link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1284x2778.png">
+<link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1170x2532.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../icons/splash/1125x2436.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="../icons/splash/828x1792.png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="../icons/icon-192.png">
 <title>Dooro intern</title>
@@ -26,7 +35,16 @@
   --shadow:0 6px 22px rgba(14,26,58,.14);
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--navy);overscroll-behavior:none}
+html,body{margin:0;height:100%;background:#5C7AD6;overscroll-behavior:none}
+html.fixh body{height:var(--appH);transform:translateZ(0)}
+#splash{position:fixed;inset:0;z-index:300;background:#2D5BFF;display:flex;flex-direction:column;align-items:center;transition:opacity .4s ease;color:#fff}
+#splash.out{opacity:0;pointer-events:none}
+#splash .door{position:absolute;left:50%;top:46%;width:20vw;max-width:110px;transform:translate(-50%,-50%);animation:sp-in .55s cubic-bezier(.2,.9,.25,1) both}
+#splash .word{position:absolute;left:0;right:0;top:calc(46% + 20vw*0.745 + 22px);text-align:center;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:30px;letter-spacing:-.02em;animation:sp-fade .6s .25s ease both}
+#splash .from{position:absolute;left:0;right:0;bottom:calc(30px + env(safe-area-inset-bottom));text-align:center;font-size:13px;font-weight:600;opacity:.7;letter-spacing:.02em;animation:sp-fade .6s .35s ease both}
+@keyframes sp-in{from{opacity:0;transform:translate(-50%,-50%) scale(.82)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes sp-fade{from{opacity:0}to{opacity:1}}
+
 body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:var(--navy);-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
 button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:inherit}
 #app{position:fixed;inset:0;overflow:hidden}
@@ -75,7 +93,7 @@ button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:poin
 .vchip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;border-radius:14px;background:rgba(14,26,58,.6);color:#fff;font-size:13px;font-weight:700}
 
 /* ---------- feed ---------- */
-#feed{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;background:var(--navy)}
+#feed{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;background:#5C7AD6}
 #feed::-webkit-scrollbar{display:none}
 .card{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;color:#fff}
 .card .dots{top:calc(var(--top) + 116px)}
@@ -217,6 +235,8 @@ input[type=range]{width:100%;accent-color:var(--blue)}
 </style>
 </head>
 <body>
+<div id="splash"><svg class="door" viewBox="153 113 206 307" aria-hidden="true"><path d="M153 420V216a103 103 0 0 1 206 0v204z" fill="#fff"/><circle cx="310" cy="295" r="13" fill="#FFC83D"/></svg><div class="word">Dooro</div><div class="from">Swipe your way home</div></div>
+<script>(function(){var s=document.getElementById('splash'),t=Date.now();function go(){var w=Math.max(0,1100-(Date.now()-t));setTimeout(function(){s.classList.add('out');setTimeout(function(){s.remove()},450)},w)}if(document.readyState==='complete')go();else addEventListener('load',go);setTimeout(function(){if(s.parentNode)s.classList.add('out')},4000)})();</script>
 <div id="gate" style="position:fixed;inset:0;z-index:200;background:#0E1A3A;display:flex;align-items:center;justify-content:center;padding:24px max(24px,env(safe-area-inset-right)) 24px max(24px,env(safe-area-inset-left))">
   <form id="gateform" style="width:100%;max-width:340px;display:flex;flex-direction:column;gap:14px;color:#fff;text-align:center;align-items:stretch">
     <div aria-hidden="true" style="align-self:center;width:72px;height:72px;border-radius:20px;background:#2D5BFF;display:flex;align-items:flex-end;justify-content:center;margin-bottom:6px"><div style="width:30px;height:45px;background:#fff;border-radius:15px 15px 3px 3px;margin-bottom:12px;position:relative"><div style="position:absolute;right:6px;top:24px;width:5px;height:5px;border-radius:50%;background:#FFC83D"></div></div></div>
